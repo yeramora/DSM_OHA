@@ -226,6 +226,38 @@ public void Destroy (int usuarioID
         }
 }
 
+public int Registro (UsuarioEN usuario)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                if (usuario.Club != null) {
+                        for (int i = 0; i < usuario.Club.Count; i++) {
+                                usuario.Club [i] = (BookReViewGenNHibernate.EN.BookReview.Club_lecEN)session.Load (typeof(BookReViewGenNHibernate.EN.BookReview.Club_lecEN), usuario.Club [i].ClubID);
+                                usuario.Club [i].Lector.Add (usuario);
+                        }
+                }
+
+                session.Save (usuario);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return usuario.UsuarioID;
+}
+
 //Sin e: ReadOID
 //Con e: UsuarioEN
 public UsuarioEN ReadOID (int usuarioID
@@ -284,38 +316,6 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
         }
 
         return result;
-}
-
-public int Registro (UsuarioEN usuario)
-{
-        try
-        {
-                SessionInitializeTransaction ();
-                if (usuario.Club != null) {
-                        for (int i = 0; i < usuario.Club.Count; i++) {
-                                usuario.Club [i] = (BookReViewGenNHibernate.EN.BookReview.Club_lecEN)session.Load (typeof(BookReViewGenNHibernate.EN.BookReview.Club_lecEN), usuario.Club [i].ClubID);
-                                usuario.Club [i].Lector.Add (usuario);
-                        }
-                }
-
-                session.Save (usuario);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return usuario.UsuarioID;
 }
 }
 }

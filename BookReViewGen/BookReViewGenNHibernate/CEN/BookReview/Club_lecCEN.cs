@@ -82,6 +82,10 @@ public void Destroy (int clubID
         _IClub_lecCAD.Destroy (clubID);
 }
 
+public System.Collections.Generic.IList<BookReViewGenNHibernate.EN.BookReview.Club_lecEN> FiltraPagsLeidas ()
+{
+        return _IClub_lecCAD.FiltraPagsLeidas ();
+}
 public Club_lecEN ReadOID (int clubID
                            )
 {
@@ -97,10 +101,6 @@ public System.Collections.Generic.IList<Club_lecEN> ReadAll (int first, int size
 
         list = _IClub_lecCAD.ReadAll (first, size);
         return list;
-}
-public System.Collections.Generic.IList<BookReViewGenNHibernate.EN.BookReview.Club_lecEN> FiltraPagsLeidas ()
-{
-        return _IClub_lecCAD.FiltraPagsLeidas ();
 }
 }
 }

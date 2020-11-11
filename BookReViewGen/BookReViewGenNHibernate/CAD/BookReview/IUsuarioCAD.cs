@@ -24,13 +24,16 @@ void Destroy (int usuarioID
               );
 
 
+int Registro (UsuarioEN usuario);
+
+
+
+
+
 UsuarioEN ReadOID (int usuarioID
                    );
 
 
 System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size);
-
-
-int Registro (UsuarioEN usuario);
 }
 }

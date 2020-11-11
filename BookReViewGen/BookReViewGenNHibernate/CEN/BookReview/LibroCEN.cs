@@ -108,22 +108,6 @@ public void Destroy (int libroID
         _ILibroCAD.Destroy (libroID);
 }
 
-public LibroEN ReadOID (int libroID
-                        )
-{
-        LibroEN libroEN = null;
-
-        libroEN = _ILibroCAD.ReadOID (libroID);
-        return libroEN;
-}
-
-public System.Collections.Generic.IList<LibroEN> ReadAll (int first, int size)
-{
-        System.Collections.Generic.IList<LibroEN> list = null;
-
-        list = _ILibroCAD.ReadAll (first, size);
-        return list;
-}
 public void BorrarLibro (int libroID
                          )
 {
@@ -196,6 +180,22 @@ public void PuntuarLibro (int p_Libro_OID, string p_autor, string p_nombre, stri
 public System.Collections.Generic.IList<BookReViewGenNHibernate.EN.BookReview.LibroEN> FiltrarListaLectura ()
 {
         return _ILibroCAD.FiltrarListaLectura ();
+}
+public LibroEN ReadOID (int libroID
+                        )
+{
+        LibroEN libroEN = null;
+
+        libroEN = _ILibroCAD.ReadOID (libroID);
+        return libroEN;
+}
+
+public System.Collections.Generic.IList<LibroEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<LibroEN> list = null;
+
+        list = _ILibroCAD.ReadAll (first, size);
+        return list;
 }
 }
 }

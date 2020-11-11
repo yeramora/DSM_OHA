@@ -99,22 +99,6 @@ public void Destroy (int usuarioID
         _IUsuarioCAD.Destroy (usuarioID);
 }
 
-public UsuarioEN ReadOID (int usuarioID
-                          )
-{
-        UsuarioEN usuarioEN = null;
-
-        usuarioEN = _IUsuarioCAD.ReadOID (usuarioID);
-        return usuarioEN;
-}
-
-public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
-{
-        System.Collections.Generic.IList<UsuarioEN> list = null;
-
-        list = _IUsuarioCAD.ReadAll (first, size);
-        return list;
-}
 public int Registro (String p_password, string p_mail, string p_fotoperfil, string p_nombre, System.Collections.Generic.IList<int> p_club, double p_dineroventa)
 {
         UsuarioEN usuarioEN = null;
@@ -161,6 +145,23 @@ public string Login (int p_Usuario_OID, string p_pass)
                 result = this.GetToken (en.UsuarioID);
 
         return result;
+}
+
+public UsuarioEN ReadOID (int usuarioID
+                          )
+{
+        UsuarioEN usuarioEN = null;
+
+        usuarioEN = _IUsuarioCAD.ReadOID (usuarioID);
+        return usuarioEN;
+}
+
+public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<UsuarioEN> list = null;
+
+        list = _IUsuarioCAD.ReadAll (first, size);
+        return list;
 }
 }
 }

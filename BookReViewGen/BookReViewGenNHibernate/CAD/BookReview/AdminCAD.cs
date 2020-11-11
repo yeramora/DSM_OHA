@@ -204,66 +204,6 @@ public void Destroy (int usuarioID
         }
 }
 
-//Sin e: ReadOID
-//Con e: AdminEN
-public AdminEN ReadOID (int usuarioID
-                        )
-{
-        AdminEN adminEN = null;
-
-        try
-        {
-                SessionInitializeTransaction ();
-                adminEN = (AdminEN)session.Get (typeof(AdminEN), usuarioID);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in AdminCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return adminEN;
-}
-
-public System.Collections.Generic.IList<AdminEN> ReadAll (int first, int size)
-{
-        System.Collections.Generic.IList<AdminEN> result = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(AdminEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<AdminEN>();
-                else
-                        result = session.CreateCriteria (typeof(AdminEN)).List<AdminEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in AdminCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
-
 public void BorrarAdmin (int usuarioID
                          )
 {
@@ -326,6 +266,65 @@ public void ReportarUsuario (AdminEN admin)
         {
                 SessionClose ();
         }
+}
+//Sin e: ReadOID
+//Con e: AdminEN
+public AdminEN ReadOID (int usuarioID
+                        )
+{
+        AdminEN adminEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                adminEN = (AdminEN)session.Get (typeof(AdminEN), usuarioID);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in AdminCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return adminEN;
+}
+
+public System.Collections.Generic.IList<AdminEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<AdminEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(AdminEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<AdminEN>();
+                else
+                        result = session.CreateCriteria (typeof(AdminEN)).List<AdminEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in AdminCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

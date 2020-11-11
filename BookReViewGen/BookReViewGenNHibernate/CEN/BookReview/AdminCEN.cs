@@ -99,22 +99,6 @@ public void Destroy (int usuarioID
         _IAdminCAD.Destroy (usuarioID);
 }
 
-public AdminEN ReadOID (int usuarioID
-                        )
-{
-        AdminEN adminEN = null;
-
-        adminEN = _IAdminCAD.ReadOID (usuarioID);
-        return adminEN;
-}
-
-public System.Collections.Generic.IList<AdminEN> ReadAll (int first, int size)
-{
-        System.Collections.Generic.IList<AdminEN> list = null;
-
-        list = _IAdminCAD.ReadAll (first, size);
-        return list;
-}
 public void BorrarAdmin (int usuarioID
                          )
 {
@@ -136,6 +120,23 @@ public void ReportarUsuario (int p_Admin_OID, String p_password, string p_mail, 
         //Call to AdminCAD
 
         _IAdminCAD.ReportarUsuario (adminEN);
+}
+
+public AdminEN ReadOID (int usuarioID
+                        )
+{
+        AdminEN adminEN = null;
+
+        adminEN = _IAdminCAD.ReadOID (usuarioID);
+        return adminEN;
+}
+
+public System.Collections.Generic.IList<AdminEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<AdminEN> list = null;
+
+        list = _IAdminCAD.ReadAll (first, size);
+        return list;
 }
 }
 }

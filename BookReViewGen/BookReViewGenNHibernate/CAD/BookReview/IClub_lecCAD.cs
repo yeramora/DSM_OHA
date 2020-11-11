@@ -24,13 +24,13 @@ void Destroy (int clubID
               );
 
 
+System.Collections.Generic.IList<BookReViewGenNHibernate.EN.BookReview.Club_lecEN> FiltraPagsLeidas ();
+
+
 Club_lecEN ReadOID (int clubID
                     );
 
 
 System.Collections.Generic.IList<Club_lecEN> ReadAll (int first, int size);
-
-
-System.Collections.Generic.IList<BookReViewGenNHibernate.EN.BookReview.Club_lecEN> FiltraPagsLeidas ();
 }
 }

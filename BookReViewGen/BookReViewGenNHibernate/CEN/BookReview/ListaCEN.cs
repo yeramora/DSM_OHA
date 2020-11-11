@@ -89,21 +89,5 @@ public System.Collections.Generic.IList<ListaEN> ReadAll (int first, int size)
         list = _IListaCAD.ReadAll (first, size);
         return list;
 }
-public ListaEN ReadOID2 (int id
-                         )
-{
-        ListaEN listaEN = null;
-
-        listaEN = _IListaCAD.ReadOID2 (id);
-        return listaEN;
-}
-
-public System.Collections.Generic.IList<ListaEN> ReadAll2 (int first, int size)
-{
-        System.Collections.Generic.IList<ListaEN> list = null;
-
-        list = _IListaCAD.ReadAll2 (first, size);
-        return list;
-}
 }
 }

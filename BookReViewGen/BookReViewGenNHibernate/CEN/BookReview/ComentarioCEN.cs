@@ -102,22 +102,6 @@ public void Destroy (int comentario
         _IComentarioCAD.Destroy (comentario);
 }
 
-public ComentarioEN ReadOID (int comentario
-                             )
-{
-        ComentarioEN comentarioEN = null;
-
-        comentarioEN = _IComentarioCAD.ReadOID (comentario);
-        return comentarioEN;
-}
-
-public System.Collections.Generic.IList<ComentarioEN> ReadAll (int first, int size)
-{
-        System.Collections.Generic.IList<ComentarioEN> list = null;
-
-        list = _IComentarioCAD.ReadAll (first, size);
-        return list;
-}
 public void BorrarComentario (int comentario
                               )
 {
@@ -166,6 +150,22 @@ public int PublicarComentario (string p_titulo, string p_autor, Nullable<DateTim
 public System.Collections.Generic.IList<BookReViewGenNHibernate.EN.BookReview.ComentarioEN> FiltrarAmigos ()
 {
         return _IComentarioCAD.FiltrarAmigos ();
+}
+public ComentarioEN ReadOID (int comentario
+                             )
+{
+        ComentarioEN comentarioEN = null;
+
+        comentarioEN = _IComentarioCAD.ReadOID (comentario);
+        return comentarioEN;
+}
+
+public System.Collections.Generic.IList<ComentarioEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<ComentarioEN> list = null;
+
+        list = _IComentarioCAD.ReadAll (first, size);
+        return list;
 }
 }
 }

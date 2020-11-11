@@ -24,13 +24,6 @@ void Destroy (int comentario
               );
 
 
-ComentarioEN ReadOID (int comentario
-                      );
-
-
-System.Collections.Generic.IList<ComentarioEN> ReadAll (int first, int size);
-
-
 void BorrarComentario (int comentario
                        );
 
@@ -38,5 +31,12 @@ void BorrarComentario (int comentario
 int PublicarComentario (ComentarioEN comentario);
 
 System.Collections.Generic.IList<BookReViewGenNHibernate.EN.BookReview.ComentarioEN> FiltrarAmigos ();
+
+
+ComentarioEN ReadOID (int comentario
+                      );
+
+
+System.Collections.Generic.IList<ComentarioEN> ReadAll (int first, int size);
 }
 }

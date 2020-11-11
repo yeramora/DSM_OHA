@@ -255,66 +255,6 @@ public void Destroy (int libroID
         }
 }
 
-//Sin e: ReadOID
-//Con e: LibroEN
-public LibroEN ReadOID (int libroID
-                        )
-{
-        LibroEN libroEN = null;
-
-        try
-        {
-                SessionInitializeTransaction ();
-                libroEN = (LibroEN)session.Get (typeof(LibroEN), libroID);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in LibroCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return libroEN;
-}
-
-public System.Collections.Generic.IList<LibroEN> ReadAll (int first, int size)
-{
-        System.Collections.Generic.IList<LibroEN> result = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(LibroEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<LibroEN>();
-                else
-                        result = session.CreateCriteria (typeof(LibroEN)).List<LibroEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in LibroCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
-
 public void BorrarLibro (int libroID
                          )
 {
@@ -437,6 +377,65 @@ public System.Collections.Generic.IList<BookReViewGenNHibernate.EN.BookReview.Li
                 IQuery query = (IQuery)session.GetNamedQuery ("LibroENfiltrarListaLecturaHQL");
 
                 result = query.List<BookReViewGenNHibernate.EN.BookReview.LibroEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in LibroCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+//Sin e: ReadOID
+//Con e: LibroEN
+public LibroEN ReadOID (int libroID
+                        )
+{
+        LibroEN libroEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                libroEN = (LibroEN)session.Get (typeof(LibroEN), libroID);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in LibroCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return libroEN;
+}
+
+public System.Collections.Generic.IList<LibroEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<LibroEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(LibroEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<LibroEN>();
+                else
+                        result = session.CreateCriteria (typeof(LibroEN)).List<LibroEN>();
                 SessionCommit ();
         }
 

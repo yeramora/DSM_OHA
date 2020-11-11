@@ -24,6 +24,8 @@ void Destroy (int compraID
               );
 
 
+
+
 CompraEN ReadOID (int compraID
                   );
 

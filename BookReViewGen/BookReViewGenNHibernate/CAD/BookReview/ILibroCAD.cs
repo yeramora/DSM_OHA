@@ -24,13 +24,6 @@ void Destroy (int libroID
               );
 
 
-LibroEN ReadOID (int libroID
-                 );
-
-
-System.Collections.Generic.IList<LibroEN> ReadAll (int first, int size);
-
-
 void BorrarLibro (int libroID
                   );
 
@@ -42,5 +35,12 @@ void PuntuarLibro (LibroEN libro);
 
 
 System.Collections.Generic.IList<BookReViewGenNHibernate.EN.BookReview.LibroEN> FiltrarListaLectura ();
+
+
+LibroEN ReadOID (int libroID
+                 );
+
+
+System.Collections.Generic.IList<LibroEN> ReadAll (int first, int size);
 }
 }

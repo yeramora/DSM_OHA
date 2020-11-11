@@ -122,13 +122,13 @@
 			
 			
 			
-			
-			
 			<Compile Include="CEN\BookReview\UsuarioCEN_ValidarUsuario.cs" />
 			
 			<Compile Include="CEN\BookReview\UsuarioCEN_VerPerfil.cs" />
 			
 			<Compile Include="CEN\BookReview\UsuarioCEN_GestionPerfil.cs" />
+			
+			
 			
 	<Compile Include="EN\BookReview\LibroEN.cs" />
 	<Compile Include="CEN\BookReview\LibroCEN.cs" />
@@ -141,9 +141,9 @@
 			
 			
 			
-			
-			
 			<Compile Include="CEN\BookReview\LibroCEN_ComentarLibro.cs" />
+			
+			
 			
 			
 	<Compile Include="EN\BookReview\SolicitudEN.cs" />
@@ -201,11 +201,11 @@
 			
 			
 			
-			
-			
 			<Compile Include="CEN\BookReview\CompraCEN_Validardatos.cs" />
 			
 			<Compile Include="CEN\BookReview\CompraCEN_Mostrarmensaje.cs" />
+			
+			
 			
 	<Compile Include="EN\BookReview\ListaEN.cs" />
 	<Compile Include="CEN\BookReview\ListaCEN.cs" />
@@ -215,11 +215,9 @@
 			
 			
 			
-			
-			
-			
-			
 			<Compile Include="CEN\BookReview\ListaCEN_AnyadirToLista.cs" />
+			
+			
 			
 	<Compile Include="Enumerated\BookReview\TiposolicitudEnum.cs" />
 	<Compile Include="Enumerated\BookReview\TipolistaEnum.cs" />

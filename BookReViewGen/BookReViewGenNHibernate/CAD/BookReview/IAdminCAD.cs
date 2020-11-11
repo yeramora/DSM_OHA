@@ -24,17 +24,17 @@ void Destroy (int usuarioID
               );
 
 
-AdminEN ReadOID (int usuarioID
-                 );
-
-
-System.Collections.Generic.IList<AdminEN> ReadAll (int first, int size);
-
-
 void BorrarAdmin (int usuarioID
                   );
 
 
 void ReportarUsuario (AdminEN admin);
+
+
+AdminEN ReadOID (int usuarioID
+                 );
+
+
+System.Collections.Generic.IList<AdminEN> ReadAll (int first, int size);
 }
 }

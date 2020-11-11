@@ -235,66 +235,6 @@ public void Destroy (int comentario
         }
 }
 
-//Sin e: ReadOID
-//Con e: ComentarioEN
-public ComentarioEN ReadOID (int comentario
-                             )
-{
-        ComentarioEN comentarioEN = null;
-
-        try
-        {
-                SessionInitializeTransaction ();
-                comentarioEN = (ComentarioEN)session.Get (typeof(ComentarioEN), comentario);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return comentarioEN;
-}
-
-public System.Collections.Generic.IList<ComentarioEN> ReadAll (int first, int size)
-{
-        System.Collections.Generic.IList<ComentarioEN> result = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(ComentarioEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<ComentarioEN>();
-                else
-                        result = session.CreateCriteria (typeof(ComentarioEN)).List<ComentarioEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
-
 public void BorrarComentario (int comentario
                               )
 {
@@ -371,6 +311,65 @@ public System.Collections.Generic.IList<BookReViewGenNHibernate.EN.BookReview.Co
                 IQuery query = (IQuery)session.GetNamedQuery ("ComentarioENfiltrarAmigosHQL");
 
                 result = query.List<BookReViewGenNHibernate.EN.BookReview.ComentarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+//Sin e: ReadOID
+//Con e: ComentarioEN
+public ComentarioEN ReadOID (int comentario
+                             )
+{
+        ComentarioEN comentarioEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                comentarioEN = (ComentarioEN)session.Get (typeof(ComentarioEN), comentario);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is BookReViewGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new BookReViewGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return comentarioEN;
+}
+
+public System.Collections.Generic.IList<ComentarioEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<ComentarioEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(ComentarioEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<ComentarioEN>();
+                else
+                        result = session.CreateCriteria (typeof(ComentarioEN)).List<ComentarioEN>();
                 SessionCommit ();
         }
 
